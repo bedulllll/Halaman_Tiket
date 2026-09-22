@@ -101,7 +101,7 @@ fun TicketScreen(
     val blue = Color(0xFF3F5BBF)
 
     val isProcessing = status == "Memproses pesanan..."
-    val isSuccess = status == "Tiket telah dipesan"
+    val isSuccess = status == "Tiket telah dipesan!"
     val isError = status == "Nama Masih Kosong"
 
     var statusBackground = Color(0xFFF1F4FA)
@@ -110,7 +110,7 @@ fun TicketScreen(
         statusBackground = Color(0xFFE8F0FE)
         statusColor = Color(0xFF1A56DB)
     } else if (isSuccess) {
-        statusBackground = Color(0xFFE6F4EA)
+        statusBackground = Color(0xFFF1FCF2)
         statusColor = Color(0xFF2E7D32)
     } else if (isError) {
         statusBackground = Color(0xFFFDECEC)
@@ -234,9 +234,15 @@ fun TicketScreen(
                 } else if (isError) {
                     Text(text = "❗ ")
                 }
+
                 Text(
-                    text = "Status: $status", color = statusColor,
+                    text = "Status: ",
+                    color = Color(0xFF424242),
                     fontWeight = FontWeight.Bold
+                )
+                Text(
+                    text = status,
+                    color = statusColor
                 )
             }
         }
